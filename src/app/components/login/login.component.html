@@ -1,0 +1,35 @@
+<h1 class="title">Login</h1>
+
+<form class="add-form" >
+   
+      <div class="form-control">
+        <label for="username">UserName</label>
+        <input
+          type="text"
+          name="username"
+          [(ngModel)]="userName"
+          id="username"
+          placeholder="Type your Username"
+        />
+        <p class="error" *ngIf="errorUserName">Dwse username</p>
+      </div>
+      <div class="form-control">
+        <label for="password">Password</label>
+        <input
+          type="text"
+          name="password"
+          [(ngModel)]="password"
+          id="Password"
+          placeholder="Type your password"
+        />
+        <p class="error" *ngIf="errorPassword">Dwse username</p>
+      </div>
+      
+     
+      <input (click)="onLogin()" type="submit" value="Sign In" class="btn btn-block" />
+      
+</form>
+
+<p>okokok</p>
+
+
