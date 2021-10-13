@@ -17,14 +17,18 @@ export class LoginComponent implements OnInit {
   constructor(private _customersService:CustomersService) {}
 
   ngOnInit(): void {
-     this.customers=this._customersService.getCustomers();
+     this._customersService.getCustomers()
+            .subscribe(data => this.customers=data);
   }
 
   onLogin(){
     if(this.showErrorMessage()){
       return;
     }
-    
+    for(let customer of this.customers){
+      console.log(customer.userName)
+        
+    }
     this.checkLogin();   
   }
 
@@ -49,4 +53,12 @@ export class LoginComponent implements OnInit {
     alert("oups");
     return;
   }
+
 }
+
+
+
+// ngOnInit(): void {
+//   this.customers=this._customersService.getCustomers();
+// }
+

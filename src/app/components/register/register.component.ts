@@ -1,3 +1,4 @@
+import { ICustomer } from './../../customer';
 import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { CustomersService } from 'src/app/services/customers.service';
 
@@ -19,21 +20,34 @@ export class RegisterComponent implements OnInit {
   @Output() changeUI=new EventEmitter(); 
 
   customers:any=[];
+  
   constructor(private _customersService:CustomersService) { }
 
   ngOnInit(): void {
-    this.customers=this._customersService.getCustomers();
-  }
-  
-  
+    this._customersService.getCustomers()
+           .subscribe(data => this.customers=data);
+ }
+ 
   onRegister(){
     if(this.showErrorMessage()){
       return;
     }
     
-     this.customers.push({fullName:this.fullName, userName:this.userName, password:this.password})
-     console.log(this.customers);
-     this.changeUI.emit();
+    for(let customer of this.customers){
+      console.log(customer.userName)
+        
+    }
+    const newCustomer={
+      fullName:this.fullName,
+      userName:this.userName,
+       password:this.password
+    }
+    this.addCustomer(newCustomer);
+      
+    
+
+      console.log(this.customers);
+      this.changeUI.emit();
   }
 
   showErrorMessage(){
@@ -48,4 +62,15 @@ export class RegisterComponent implements OnInit {
     this.errorPassword=false;
     return false;
   }
+
+   addCustomer(customer:ICustomer){
+     this._customersService.addCustomer(customer).subscribe((customer)=>this.customers.push(customer));
+   }
 }
+
+
+//this.customers.push({fullName:this.fullName, userName:this.userName, password:this.password})
+
+// ngOnInit(): void {
+//   this.customers=this._customersService.getCustomers();
+// }

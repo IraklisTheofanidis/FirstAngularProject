@@ -1,26 +1,32 @@
+import { ICustomer } from './../customer';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+const httpOptions={
+  headers: new HttpHeaders({
+    'Content-type':"application/json;charset=utf-8'"
+  })
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomersService {
-  fullName=""
-  customers:Array<any>=[
-    {fullName:"Iraklis Theofanidis",userName:"hercules",password:"password1"},
-    {fullName:"Vasilis Georgiou",userName:"bill",password:"password2"},
-    {fullName:"Giorgos Vasiliadis",userName:"george",password:"password3"}
-  ]
+ 
+//private _url ="/assets/data/customers.json"; 
+private _url ="http://localhost:5000/customers";
+  constructor(private http:HttpClient) { }
+  
+  getCustomers():Observable<ICustomer[]>{
+    return this.http.get<ICustomer[]>(this._url);
+   
+  }
 
-  constructor() { }
-  getCustomers(){
-    return this.customers
-    // [
-    //   {fullName:"Iraklis Theofanidis",userName:"hercules",password:"password1"},
-    //   {fullName:"Vasilis Georgiou",userName:"bill",password:"password2"},
-    //   {fullName:"Giorgos Vasiliadis",userName:"george",password:"password3"}
-    //   // {"fullName":"Iraklis Theofanidis","userName":"hercules","password":"password1"},
-    //   // {"fullName":"Vasilis Georgiou","userName":"bill","password":"password2"},
-    //   // {"fullName":"Giorgos Vasiliadis","userName":"george","password":"password3"}
-    // ];   
+  addCustomer(customer:ICustomer):Observable<ICustomer>{
+    return this.http.post<ICustomer>(this._url,customer,httpOptions)
   }
 }
+
+
+
