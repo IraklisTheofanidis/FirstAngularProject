@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UiComponentComponent } from './ui-component.component';
+import { PageNotFoundComponent } from './page-not-found.component';
 
-describe('UiComponentComponent', () => {
-  let component: UiComponentComponent;
-  let fixture: ComponentFixture<UiComponentComponent>;
+describe('PageNotFoundComponent', () => {
+  let component: PageNotFoundComponent;
+  let fixture: ComponentFixture<PageNotFoundComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UiComponentComponent ]
+      declarations: [ PageNotFoundComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UiComponentComponent);
+    fixture = TestBed.createComponent(PageNotFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

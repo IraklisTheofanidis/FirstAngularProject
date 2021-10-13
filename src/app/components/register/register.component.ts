@@ -43,11 +43,9 @@ export class RegisterComponent implements OnInit {
        password:this.password
     }
     this.addCustomer(newCustomer);
-      
-    
 
       console.log(this.customers);
-      this.changeUI.emit();
+    //  this.changeUI.emit();
   }
 
   showErrorMessage(){

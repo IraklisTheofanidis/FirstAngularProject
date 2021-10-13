@@ -40,6 +40,12 @@
       "userName": "Original",
       "password": "passwordOriginal",
       "id": 5
+    },
+    {
+      "fullName": "onoma epitheto",
+      "userName": "userOnoma",
+      "password": "passOnoma",
+      "id": 6
     }
   ]
 }

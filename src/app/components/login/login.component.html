@@ -1,35 +1,42 @@
-<h1 class="title">Login</h1>
+<div class="container">
 
-<form class="add-form" >
-   
-      <div class="form-control">
-        <label for="username">UserName</label>
-        <input
-          type="text"
-          name="username"
-          [(ngModel)]="userName"
-          id="username"
-          placeholder="Type your Username"
-        />
-        <p class="error" *ngIf="errorUserName">Dwse username</p>
-      </div>
-      <div class="form-control">
-        <label for="password">Password</label>
-        <input
-          type="text"
-          name="password"
-          [(ngModel)]="password"
-          id="Password"
-          placeholder="Type your password"
-        />
-        <p class="error" *ngIf="errorPassword">Dwse username</p>
-      </div>
-      
-     
-      <input (click)="onLogin()" type="submit" value="Sign In" class="btn btn-block" />
-      
-</form>
+  <h1 class="title">Login</h1>
 
-<p>okokok</p>
+  <form class="add-form" >
+    
+        <div class="form-control">
+          <label for="username">UserName</label>
+          <input
+            type="text"
+            name="username"
+            [(ngModel)]="userName"
+            id="username"
+            placeholder="Type your Username"
+          />
+          <p class="error" *ngIf="errorUserName">Dwse username</p>
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input
+            type="text"
+            name="password"
+            [(ngModel)]="password"
+            id="Password"
+            placeholder="Type your password"
+          />
+          <p class="error" *ngIf="errorPassword">Dwse username</p>
+        </div>
+        
+      
+        <input (click)="onLogin()" type="submit" value="Sign In" class="btn btn-block" />
+        
+  </form>
+
+  <nav>
+    <span></span>Do not have an account?
+    <a routerLink="/register">Sign up</a>
+  </nav>
+
+</div>
 
 
