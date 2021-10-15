@@ -46,6 +46,70 @@
       "userName": "userOnoma",
       "password": "passOnoma",
       "id": 6
+    },
+    {
+      "fullName": "Eggrafi epitheto",
+      "userName": "eggrafi",
+      "password": "eggrafi",
+      "id": 7
+    },
+    {
+      "fullName": "Eggrafi Epitheto2",
+      "userName": "Eggrafi2",
+      "password": "Eggrafi2",
+      "id": 8
     }
+  ],
+
+  "books": [
+      {
+        "id":2,
+        "title":"First Book",
+        "author":"First Author",
+        "pages":250,
+        "read":true,
+        "userId":2
+      },
+      {
+        "id":3,
+        "title":"Second Book",
+        "author":"Second Author",
+        "pages":250,
+        "read":false,
+        "userId":2
+      },
+      {
+        "id":4,
+        "title":"third Book",
+        "author":"third Author",
+        "pages":250,
+        "read":true,
+        "userId":3
+      },
+      {
+        "id":5,
+        "title":"fourth Book",
+        "author":"fourth Author",
+        "pages":200,
+        "read":false,
+        "userId":3
+      },
+      {
+        "id":6,
+        "title":"fifth Book",
+        "author":"fifth Author",
+        "pages":290,
+        "read":true,
+        "userId":3
+      },
+      {
+        "id":7,
+        "title":"sixth Book",
+        "author":"sixth Author",
+        "pages":350,
+        "read":true,
+        "userId":4
+      }
+
   ]
 }

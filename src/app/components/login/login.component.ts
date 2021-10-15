@@ -1,5 +1,7 @@
 import { CustomersService } from './../../services/customers.service';
 import { Component, OnInit } from '@angular/core';
+import { Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-login',
@@ -13,8 +15,10 @@ export class LoginComponent implements OnInit {
   password="";
   errorPassword=false;
 
+  id=0;
   customers:any=[];
-  constructor(private _customersService:CustomersService) {}
+  constructor(private _customersService:CustomersService,
+              private router: Router) {}
 
   ngOnInit(): void {
      this._customersService.getCustomers()
@@ -47,6 +51,10 @@ export class LoginComponent implements OnInit {
     for(let customer of this.customers){
       if(customer.userName==this.userName && customer.password==this.password){
         alert("Registered");
+        let id=customer.id;
+      //  this.id=customer.id;
+        console.log(id);
+        this.router.navigate(['/myLibrary',id]);
         return;
       }
     }

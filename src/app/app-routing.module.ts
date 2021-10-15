@@ -1,3 +1,4 @@
+import { MyLibraryComponent } from './components/my-library/my-library.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -9,6 +10,8 @@ const routes:Routes=[
   {path:"",redirectTo:"/register",pathMatch:"full"},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
+  {path:'myLibrary',component:MyLibraryComponent},
+  {path:'myLibrary/:id',component:MyLibraryComponent},
   {path:"**",component:PageNotFoundComponent}
 ];
 
@@ -17,4 +20,7 @@ const routes:Routes=[
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents=[RegisterComponent,LoginComponent,PageNotFoundComponent]
+export const routingComponents=[RegisterComponent,
+                                LoginComponent,
+                                PageNotFoundComponent,
+                              MyLibraryComponent]

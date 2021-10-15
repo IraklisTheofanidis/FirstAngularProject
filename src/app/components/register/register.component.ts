@@ -1,6 +1,7 @@
 import { ICustomer } from './../../customer';
 import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { CustomersService } from 'src/app/services/customers.service';
+import { Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,8 @@ export class RegisterComponent implements OnInit {
 
   customers:any=[];
   
-  constructor(private _customersService:CustomersService) { }
+  constructor(private _customersService:CustomersService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this._customersService.getCustomers()
@@ -43,7 +45,8 @@ export class RegisterComponent implements OnInit {
        password:this.password
     }
     this.addCustomer(newCustomer);
-
+    alert("You have Registered.Now you can Sign in");
+    this.router.navigate(['/login']);
       console.log(this.customers);
     //  this.changeUI.emit();
   }

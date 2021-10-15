@@ -1,0 +1,22 @@
+<nav>
+    <h1>My Library</h1>
+
+</nav>
+
+<div id="displayBooks" > 
+    <div class="books" *ngFor="let book of books | fresh:useridd">
+        <h3>{{book.title}}</h3>
+        <p>Author:{{book.author}}</p>
+        <p>Pages:{{book.pages}}</p>
+        <div>
+            <button *ngIf="book.read else elseBlock" class="btn">Read</button>
+            <ng-template #elseBlock>
+                <button class="btn">Not Read</button>
+
+            </ng-template>
+            <button class="btn rmv">delete</button>
+        </div>
+    </div>
+
+    
+</div>

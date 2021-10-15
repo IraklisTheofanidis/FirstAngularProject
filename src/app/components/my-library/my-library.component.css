@@ -1,0 +1,99 @@
+nav{
+    position:fixed;
+    background-color: #F4F1DE;
+    top:0px;left:0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:15%;
+    width:100%;
+    z-index: 1000;
+}
+
+h1{
+    font-size:50px;
+    color:black;
+}
+
+#displayBooks {
+    position:absolute;
+    top:15%;
+    left: 0px;
+    background-color: #F4F1DE;
+    width:100%;
+    max-width:100%;
+    min-height: 85%;
+   padding-top:20px;
+   
+    display:grid;
+   grid-template-columns: repeat(2,auto); 
+   row-gap: 20px;
+   justify-content: space-evenly;
+   
+   align-items: center;
+   transition: all 0.7s ease 0s;   
+   
+}
+
+#displayBooks .books{
+    
+    background-color: #F2CC8F;
+    padding:0px 10px 20px 10px;
+   
+   width:300px;
+  /* display:flex;*/
+   flex-direction: column;
+   justify-content: space-between;
+
+   border-radius: 10px;
+    
+}
+
+#displayBooks .books h3{
+    border-bottom: solid;
+    font-family:"montserrat";
+    text-align:center;
+   
+    font-size:26px;
+    word-break: break-word;
+    margin:20px 10px;
+}
+
+#displayBooks .books p{
+  
+    font-size:20px;
+    font-family:"montserrat";
+    text-align: center;
+     margin-bottom:10px;
+
+}
+
+#displayBooks .books div{
+    display:flex;gap:10px;justify-content: center;text-align:center;
+}
+#displayBooks .books div .btn{
+    border: 1px solid #3498db;
+    background:none;
+    padding:10px 20px;
+    margin-right:3px;
+    font-size:20px;
+    font-family:"montserrat";
+    cursor:pointer;
+    color:#3498db;
+    box-shadow: 0px 8px 15px rgba(129, 25, 25, 0.1);
+    transition: all 0.3s ease 0s;
+}
+
+#displayBooks .books div .rmv{
+    border: 1px solid #3498db;
+    background:none;
+    padding:10px 20px;
+    margin-right:3px;
+    font-size:20px;
+    font-family:"montserrat";
+    cursor:pointer;
+    color:red;
+    box-shadow: 0px 8px 15px rgba(129, 25, 25, 0.1);
+    transition: all 0.3s ease 0s;
+}
+
