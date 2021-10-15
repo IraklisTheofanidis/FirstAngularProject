@@ -2,6 +2,7 @@ export interface IBook{
     id?:number;
     title:string;
     author:string;
-    pages:boolean;
+    pages:number;
+    read:boolean;
     userId:number;
 }

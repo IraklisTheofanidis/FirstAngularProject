@@ -9,9 +9,9 @@
         <p>Author:{{book.author}}</p>
         <p>Pages:{{book.pages}}</p>
         <div>
-            <button *ngIf="book.read else elseBlock" class="btn">Read</button>
+            <button (click)="change(book)" *ngIf="book.read else elseBlock" class="btn">Read</button>
             <ng-template #elseBlock>
-                <button class="btn">Not Read</button>
+                <button (click)="change(book)" class="btn">Not Read</button>
 
             </ng-template>
             <button class="btn rmv">delete</button>
