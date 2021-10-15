@@ -26,4 +26,9 @@ export class BooksService {
       const url= `${this._url}/${book.id}`;
       return this.http.put<IBook>(url,book,httpOptions)
   }
+
+  deleteBooks(book:IBook):Observable<IBook>{
+    const url= `${this._url}/${book.id}`;
+    return this.http.delete<IBook>(url);
+  }
 }

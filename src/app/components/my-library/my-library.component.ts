@@ -1,4 +1,4 @@
-import { IBook } from './../../books';
+import { IBook } from 'src/app/books';
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/services/books.service';
 import { ActivatedRoute } from '@angular/router';
@@ -31,5 +31,11 @@ export class MyLibraryComponent implements OnInit {
   change(book:IBook){
     book.read=!book.read;
     this._booksService.updateBooks(book).subscribe();
+  }
+
+  deleteBook(book:IBook){
+    this._booksService.deleteBooks(book)
+          .subscribe(
+            ()=>this.books=this.books.filter((t:any)=>t.id!==book.id))
   }
 }
