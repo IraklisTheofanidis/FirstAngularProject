@@ -2,6 +2,8 @@ import { IBook } from 'src/app/books';
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/services/books.service';
 import { ActivatedRoute } from '@angular/router';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -12,8 +14,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MyLibraryComponent implements OnInit {
   books:any=[];
- 
-  
+  faPlusCircle=faPlusCircle;
+  faTimes=faTimes;
+  showOpacity=true;
+  showForm=false;
+
   constructor(private _booksService:BooksService,private route:ActivatedRoute) { }
   id:any;
   useridd:number=0;
@@ -37,5 +42,15 @@ export class MyLibraryComponent implements OnInit {
     this._booksService.deleteBooks(book)
           .subscribe(
             ()=>this.books=this.books.filter((t:any)=>t.id!==book.id))
+  }
+
+  newBook(){
+    this.showOpacity=!this.showOpacity;
+    this.showForm=!this.showForm;
+  }
+
+  closeForm(){
+    this.showOpacity=!this.showOpacity;
+    this.showForm=!this.showForm;
   }
 }

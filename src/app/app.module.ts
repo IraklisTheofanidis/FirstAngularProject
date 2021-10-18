@@ -15,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { MyLibraryComponent } from './components/my-library/my-library.component';
 import { MyFilterPipePipe } from './my-filter-pipe.pipe';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MyFilterPipePipe } from './my-filter-pipe.pipe';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [CustomersService,BooksService],
   bootstrap: [AppComponent]

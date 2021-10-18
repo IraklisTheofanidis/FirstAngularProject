@@ -1,3 +1,11 @@
+#myLibrary{
+    transition: all 0.7s ease 0s;  
+}
+
+#divForm{
+    transition: all 0.7s ease 0s;  
+}
+
 nav{
     position:fixed;
     background-color: #F4F1DE;
@@ -96,4 +104,74 @@ h1{
     box-shadow: 0px 8px 15px rgba(129, 25, 25, 0.1);
     transition: all 0.3s ease 0s;
 }
+
+#add{
+    color:red;
+    position:fixed;
+    z-index: 3000;
+    top:20%;
+    right:100px;
+    border: none;
+    outline: none;
+     font-size: 50px;
+     cursor: pointer;
+     transition-duration: 0.7s;
+     
+}
+
+#add:hover{
+    transform:rotate(90deg) scale(1.1);
+ 
+}
+
+#cancel{
+    color:red;
+    position:absolute;
+    top:20px;
+    right:20px;
+    font-size: 20px;
+     cursor: pointer;
+    
+}
+
+#cancel:hover{
+    transform:scale(1.5)
+}
+
+#divForm{
+    position: fixed;
+    z-index: 100000;
+    top:10px;
+     position: fixed;background-color:white;
+   left:0;right:0;margin-left: auto;margin-right:auto;
+   top:15%;
+
+   min-height: 300px;
+    max-width: 500px;
+    border: 1px solid steelblue;
+    border-radius: 5px;
+    padding: 30px;
+    /* display: flex; 
+   justify-content: center;*/
+   display:none;
+      transition: all 0.7s ease 0s;    
+}
+
+
+@media (max-width: 900px){
+    #displayBooks {
+        
+       grid-template-columns: repeat(1,auto); 
+         
+       
+    }
+}
+
+@media (max-width: 900px){
+    #add{
+        right:20px;
+    }
+}
+
+
 
