@@ -1,3 +1,4 @@
+
 import { IBook } from 'src/app/books';
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
@@ -30,5 +31,9 @@ export class BooksService {
   deleteBooks(book:IBook):Observable<IBook>{
     const url= `${this._url}/${book.id}`;
     return this.http.delete<IBook>(url);
+  }
+
+  addBook(book:IBook):Observable<IBook>{
+    return this.http.post<IBook>(this._url,book,httpOptions)
   }
 }

@@ -108,6 +108,30 @@
       "pages": 350,
       "read": true,
       "userId": 4
+    },
+    {
+      "title": "seventhBook",
+      "author": "seventhTitle",
+      "pages": 290,
+      "read": true,
+      "userId": 3,
+      "id": 8
+    },
+    {
+      "title": "eight book",
+      "author": "eight author",
+      "pages": 290,
+      "read": false,
+      "userId": 3,
+      "id": 9
+    },
+    {
+      "title": "nine Book",
+      "author": "nine Author",
+      "pages": 230,
+      "read": false,
+      "userId": 4,
+      "id": 10
     }
   ]
 }
