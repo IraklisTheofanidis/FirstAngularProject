@@ -4,24 +4,11 @@ import { MyLibraryComponent } from './components/my-library/my-library.component
 
 @Pipe({
   name: 'fresh'
-  
 })
 export class MyFilterPipePipe implements PipeTransform {
 
-  transform(value:any,filterInt:number){
-    if(value.length===0){
-      return value;
-    }
-    const books=[];
-    for(const book of value){
-      if(book['userId']===filterInt){
-        books.push(book);
-      }
-    }
-    return books;
+  transform(books: IBook[], filterInt: number) {
+    return books.filter(book => book.userId === filterInt);
   }
 
 }
-
-
-
