@@ -1,3 +1,4 @@
+import { ICustomer } from './../../customer';
 import { CustomersService } from './../../services/customers.service';
 import { Component, OnInit } from '@angular/core';
 import { Router} from "@angular/router";
@@ -9,6 +10,7 @@ import { Router} from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
   userName="";
   errorUserName=false;
 
@@ -16,13 +18,15 @@ export class LoginComponent implements OnInit {
   errorPassword=false;
 
   id=0;
-  customers:any=[];
+  customers!:ICustomer[];
   constructor(private _customersService:CustomersService,
               private router: Router) {}
 
   ngOnInit(): void {
-     this._customersService.getCustomers()
-            .subscribe(data => this.customers=data);
+  
+    this._customersService.getUser().subscribe(customers => {
+      this.customers=customers;
+    })
   }
 
   onLogin(){
@@ -52,7 +56,6 @@ export class LoginComponent implements OnInit {
       if(customer.userName==this.userName && customer.password==this.password){
         alert("Registered");
         let id=customer.id;
-      //  this.id=customer.id;
         console.log(id);
         this.router.navigate(['/myLibrary',id]);
         return;

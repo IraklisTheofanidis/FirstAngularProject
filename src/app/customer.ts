@@ -1,5 +1,5 @@
 export interface ICustomer{
-    id?:number;
+    id?:string;
     fullName:string;
     userName:string;
     password:string;

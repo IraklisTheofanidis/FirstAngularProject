@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "first-project-2900f": {
+      "hosting": {
+        "LoginRegister": [
+          "first-project-2900f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "first-project-2900f"
+  }
+}

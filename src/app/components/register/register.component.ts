@@ -9,53 +9,43 @@ import { Router} from "@angular/router";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  fullName="";
-  errorFullName=false;
+   errorFullName=false;
+   errorUserName=false;
+   errorPassword=false;
 
-  userName="";
-  errorUserName=false;
+  customer:ICustomer={
+    fullName:"",
+    userName:"",
+    password:""
+  }
 
-  password="";
-  errorPassword=false;
+  customers!:ICustomer[];
 
-  @Output() changeUI=new EventEmitter(); 
-
-  customers:any=[];
-  
   constructor(private _customersService:CustomersService,
               private router: Router) { }
 
-  ngOnInit(): void {
-    this._customersService.getCustomers()
-           .subscribe(data => this.customers=data);
+  ngOnInit(): void {    
  }
  
   onRegister(){
     if(this.showErrorMessage()){
       return;
     }
-    
-    for(let customer of this.customers){
-      console.log(customer.userName)
-        
-    }
-    const newCustomer={
-      fullName:this.fullName,
-      userName:this.userName,
-       password:this.password
-    }
-    this.addCustomer(newCustomer);
+    console.log(this.customer);
+    this._customersService.addUser(this.customer);
+    this.customer.fullName="";
+    this.customer.userName="";
+    this.customer.password="";
     alert("You have Registered.Now you can Sign in");
     this.router.navigate(['/login']);
       console.log(this.customers);
-    //  this.changeUI.emit();
   }
 
   showErrorMessage(){
-    if(this.fullName=="" || this.userName=="" || this.password==""){
-      this.fullName=="" ? this.errorFullName=true : this.errorFullName=false;
-      this.userName=="" ? this.errorUserName=true : this.errorUserName=false;
-      this.password=="" ? this.errorPassword=true : this.errorPassword=false;   
+    if(this.customer.fullName=="" || this.customer.userName=="" || this.customer.password==""){
+      this.customer.fullName=="" ? this.errorFullName=true : this.errorFullName=false;
+      this.customer.userName=="" ? this.errorUserName=true : this.errorUserName=false;
+      this.customer.password=="" ? this.errorPassword=true : this.errorPassword=false;   
       return true;
     }
     this.errorFullName=false;
@@ -64,14 +54,5 @@ export class RegisterComponent implements OnInit {
     return false;
   }
 
-   addCustomer(customer:ICustomer){
-     this._customersService.addCustomer(customer).subscribe((customer)=>this.customers.push(customer));
-   }
 }
 
-
-//this.customers.push({fullName:this.fullName, userName:this.userName, password:this.password})
-
-// ngOnInit(): void {
-//   this.customers=this._customersService.getCustomers();
-// }
