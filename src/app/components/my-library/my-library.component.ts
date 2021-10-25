@@ -13,8 +13,8 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./my-library.component.css']
 })
 export class MyLibraryComponent implements OnInit {
-  books:any=[];
   
+  books!:IBook[];
   faPlusCircle=faPlusCircle;
   faTimes=faTimes;
   
@@ -29,32 +29,32 @@ export class MyLibraryComponent implements OnInit {
 
   constructor(private _booksService:BooksService,private route:ActivatedRoute) { }
   id:any;
-  useridd:number=0;
+  useridd:string="";
 
   ngOnInit(): void {
-    this.getBooks();
-   
+     
      this.id=(this.route.snapshot.paramMap.get("id"));
-     this.useridd=Number(this.id);
+     this.useridd=this.id;
+
+     this._booksService.getBooks2().subscribe(books => {
+      this.books=books;
+    })
     
   }
-
-  getBooks(){
-    this._booksService.getBooks()
-    .subscribe(data=>
-      (this.books=data));
-  }
-
   change(book:IBook){
     book.read=!book.read;
     this._booksService.updateBooks(book).subscribe();
   }
 
-  deleteBook(book:IBook){
-    this._booksService.deleteBooks(book)
-          .subscribe(
-            ()=>this.books=this.books.filter((t:any)=>t.id!==book.id))
+  deleteBook(event:any,book:IBook){
+    
+    this._booksService.deleteBook(book)
   }
+  // deleteBook(book:IBook){
+  //   this._booksService.deleteBooks(book)
+  //         .subscribe(
+  //           ()=>this.books=this.books.filter((t:any)=>t.id!==book.id))
+  // }
 
   formBook(){
     this.showOpacity=!this.showOpacity;
@@ -67,21 +67,13 @@ export class MyLibraryComponent implements OnInit {
       pages:this.pages,
       read:this.read,
       userId:this.useridd
-      
-       
-    }
-    this.addBook(newBook);
-    this.getBooks();
+          
+    }  
+    this._booksService.addBooks2(newBook);
 
     console.log(newBook);
     this.initialization();
   }
-
-  addBook(book:IBook){
-    this._booksService.addBook(book).subscribe((book)=>this.books.push(book));
-  }
-
-  
 
   closeForm(){
     this.showOpacity=!this.showOpacity;

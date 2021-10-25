@@ -5,7 +5,7 @@
     </nav>
 
     <div id="displayBooks" > 
-        <div class="books" *ngFor="let book of books | fresh:useridd">
+        <div class="books" *ngFor="let book of books ">
             <h3>{{book.title}}</h3>
             <p>Author:{{book.author}}</p>
             <p>Pages:{{book.pages}}</p>
@@ -15,13 +15,13 @@
                     <button (click)="change(book)" class="btn">Not Read</button>
 
                 </ng-template>
-                <button (click)="deleteBook(book)" class="btn rmv">delete</button>
+                <button (click)="deleteBook($event,book)" class="btn rmv">delete</button>
             </div>
         </div>
 
         <fa-icon id="add" (click)="formBook()" [icon]="faPlusCircle"></fa-icon> 
     </div>
-    
+    <!-- | fresh:useridd -->
 </div>
 <form [style.display]="showForm? 'block':'none'" id="divForm">
   <fa-icon id="cancel" (click)="closeForm()" [icon]="faTimes"></fa-icon> 

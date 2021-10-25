@@ -8,8 +8,8 @@ import { MyLibraryComponent } from './components/my-library/my-library.component
 })
 export class MyFilterPipePipe implements PipeTransform {
 
-  transform(books: IBook[], filterInt: number) {
-    return books.filter(book => book.userId === filterInt);
+  transform(books: IBook[], filterString: string) {
+    return books.filter(book => book.userId === filterString);
   }
 
 }
