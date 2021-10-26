@@ -6,24 +6,16 @@ import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs/operators';
 
-const httpOptions={
-  headers: new HttpHeaders({
-    'Content-type':"application/json;charset=utf-8'"
-  })
-}
-
 @Injectable({
   providedIn: 'root'
 })
 export class CustomersService {
  
-//private _url ="/assets/data/customers.json"; 
-private _url ="http://localhost:5000/customers";
-  
+ 
 users!:Observable<ICustomer[]>;
 private itemsCollection!: AngularFirestoreCollection<ICustomer>;
-constructor(private http:HttpClient,
-    public firestore: AngularFirestore) { 
+
+constructor(public firestore: AngularFirestore) { 
       this.itemsCollection=firestore.collection("users");
 
       this.users= firestore.collection('users').snapshotChanges().pipe(map(changes=>
@@ -45,7 +37,6 @@ constructor(private http:HttpClient,
       this.itemsCollection.add(customer);
     }
 
-  
 }
 
 

@@ -33,10 +33,7 @@ export class LoginComponent implements OnInit {
     if(this.showErrorMessage()){
       return;
     }
-    for(let customer of this.customers){
-      console.log(customer.userName)
-        
-    }
+   
     this.checkLogin();   
   }
 
@@ -56,7 +53,6 @@ export class LoginComponent implements OnInit {
       if(customer.userName==this.userName && customer.password==this.password){
         alert("Registered");
         let id=customer.id;
-        console.log(id);
         this.router.navigate(['/myLibrary',id]);
         return;
       }

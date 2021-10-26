@@ -31,14 +31,14 @@ export class RegisterComponent implements OnInit {
     if(this.showErrorMessage()){
       return;
     }
-    console.log(this.customer);
+  
     this._customersService.addUser(this.customer);
     this.customer.fullName="";
     this.customer.userName="";
     this.customer.password="";
     alert("You have Registered.Now you can Sign in");
     this.router.navigate(['/login']);
-      console.log(this.customers);
+     
   }
 
   showErrorMessage(){

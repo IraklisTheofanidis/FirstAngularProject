@@ -23,7 +23,7 @@ export class MyLibraryComponent implements OnInit {
 
   title!:string;
   author!:string;
-  pages!:number;
+  pages:number=0;
   read:boolean=false;
 
 
@@ -43,18 +43,13 @@ export class MyLibraryComponent implements OnInit {
   }
   change(book:IBook){
     book.read=!book.read;
-    this._booksService.updateBooks(book).subscribe();
+    this._booksService.updateBook(book);
   }
 
   deleteBook(event:any,book:IBook){
     
     this._booksService.deleteBook(book)
   }
-  // deleteBook(book:IBook){
-  //   this._booksService.deleteBooks(book)
-  //         .subscribe(
-  //           ()=>this.books=this.books.filter((t:any)=>t.id!==book.id))
-  // }
 
   formBook(){
     this.showOpacity=!this.showOpacity;
@@ -71,7 +66,6 @@ export class MyLibraryComponent implements OnInit {
     }  
     this._booksService.addBooks2(newBook);
 
-    console.log(newBook);
     this.initialization();
   }
 
