@@ -2,26 +2,15 @@
   <h1 class="title">Register</h1>
 
   <form class="add-form"  >
-      <div class="form-control">
-          <label  for="fullname">FullName</label>
-          <input         
-            type="text"
-            name="fullname"
-            [(ngModel)]="customer.fullName"
-            id="fullname"
-            placeholder="Type your FullName"         
-          />
-        <p class="error" *ngIf="errorFullName">Dwse name</p>
-
-        </div>
+           
         <div class="form-control">
-          <label for="username">UserName</label>
+          <label for="email">Email</label>
           <input
             type="text"
-            name="username"
-            [(ngModel)]="customer.userName"
+            name="email"
+            [(ngModel)]="customer.email"
             id="username"
-            placeholder="Type your Username"
+            placeholder="Type your Email"
           />
           <p class="error" *ngIf="errorUserName">Dwse username</p>
         </div>

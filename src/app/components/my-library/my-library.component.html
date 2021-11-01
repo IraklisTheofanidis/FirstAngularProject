@@ -1,7 +1,7 @@
 <div [style.opacity]="showOpacity ? '1':0.3" id="myLibrary">
     <nav>
         <h1>My Library</h1>
-
+        <fa-icon id="signOut" (click)="signOut()" [icon]="faSignOutAlt"></fa-icon>
     </nav>
 
     <div id="displayBooks" > 

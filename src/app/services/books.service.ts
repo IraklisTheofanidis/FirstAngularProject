@@ -12,51 +12,43 @@ import { map } from 'rxjs/operators';
 })
 export class BooksService {
 
-  books!:Observable<IBook[]>;
+  //books!:Observable<IBook[]>;
 
-  private itemsCollection!: AngularFirestoreCollection<IBook>;
-  private itemDoc!: AngularFirestoreDocument<IBook>
-  //private firestore!:AngularFirestore
+  private booksCollection: AngularFirestoreCollection<IBook>;
+  //private itemDoc: AngularFirestoreDocument<IBook>
+  
   constructor(public firestore: AngularFirestore) {
-      this.itemsCollection=firestore.collection("books");
-
-      this.books= firestore.collection('books').snapshotChanges().pipe(map(changes=>
-        {
-          return changes.map(a=>
-            {
-              const data= a.payload.doc.data() as IBook;
-              data.id=a.payload.doc.id;
-              return data;
-            })
-        }));
-      
+      this.booksCollection=firestore.collection("books");
+      //itemsCollection=firestore.collection("books");
+      //,public itemsCollection:AngularFirestoreCollection<IBook>
      }
 
-  getBooks2()  {
-    // this.books= firestore.collection('books').snapshotChanges().pipe(map(changes=>
-    //   {
-    //     return changes.map(a=>
-    //       {
-    //         const data= a.payload.doc.data() as IBook;
-    //         data.id=a.payload.doc.id;
-    //         return data;
-    //       })
-    //   }));
-    return this.books;
+  getBooks2():Observable<IBook[]> {
+    return this.firestore.collection('books').snapshotChanges().pipe(map(changes=>
+      {
+        return changes.map(a=>
+          {
+            const data= a.payload.doc.data() as IBook;
+            data.id=a.payload.doc.id;
+            return data;
+          })
+      }));
+   // return this.books;
   }
   
   addBooks2(book:IBook){
-    this.itemsCollection.add(book)
+    this.booksCollection.add(book)
   }
 
   deleteBook(book:IBook){
-    this.itemDoc = this.firestore.doc(`books/${book.id}`);
-    this.itemDoc.delete();
+  //  this.firestore.doc(`books/${book.id}`).delete();
+    this.booksCollection.doc(book.id).delete();
   }
 
   updateBook(book:IBook){
-    this.itemDoc = this.firestore.doc(`books/${book.id}`);
-    this.itemDoc.update(book);
+    const previousReadStatus=book.read;
+    this.booksCollection.doc(book.id).update({read:!previousReadStatus});
+    // this.firestore.doc(`books/${book.id}`).delete();
   }
   // updateBooks(book:IBook):Observable<IBook>{
   //     const url= `${this._url}/${book.id}`;

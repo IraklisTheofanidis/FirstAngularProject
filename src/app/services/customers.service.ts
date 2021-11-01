@@ -16,26 +16,26 @@ users!:Observable<ICustomer[]>;
 private itemsCollection!: AngularFirestoreCollection<ICustomer>;
 
 constructor(public firestore: AngularFirestore) { 
-      this.itemsCollection=firestore.collection("users");
+      // this.itemsCollection=firestore.collection("users");
 
-      this.users= firestore.collection('users').snapshotChanges().pipe(map(changes=>
-        {
-          return changes.map(a=>
-            {
-              const data= a.payload.doc.data() as ICustomer;
-              data.id=a.payload.doc.id;
-              return data;
-            })
-        }));
+      // this.users= firestore.collection('users').snapshotChanges().pipe(map(changes=>
+      //   {
+      //     return changes.map(a=>
+      //       {
+      //         const data= a.payload.doc.data() as ICustomer;
+      //         data.id=a.payload.doc.id;
+      //         return data;
+      //       })
+      //   }));
     }
   
-    getUser(){
-      return this.users;
-    }
+    // getUser(){
+    //   return this.users;
+    // }
 
-    addUser(customer:ICustomer){
-      this.itemsCollection.add(customer);
-    }
+    // addUser(customer:ICustomer){
+    //   this.itemsCollection.add(customer);
+    // }
 
 }
 
