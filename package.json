@@ -1,5 +1,6 @@
 {
   "name": "login-register",
+  "description": "Lel",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
