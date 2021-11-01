@@ -16,7 +16,7 @@ export class BooksService {
 
   private itemsCollection!: AngularFirestoreCollection<IBook>;
   private itemDoc!: AngularFirestoreDocument<IBook>
-
+  //private firestore!:AngularFirestore
   constructor(public firestore: AngularFirestore) {
       this.itemsCollection=firestore.collection("books");
 
@@ -29,9 +29,19 @@ export class BooksService {
               return data;
             })
         }));
+      
      }
 
   getBooks2()  {
+    // this.books= firestore.collection('books').snapshotChanges().pipe(map(changes=>
+    //   {
+    //     return changes.map(a=>
+    //       {
+    //         const data= a.payload.doc.data() as IBook;
+    //         data.id=a.payload.doc.id;
+    //         return data;
+    //       })
+    //   }));
     return this.books;
   }
   

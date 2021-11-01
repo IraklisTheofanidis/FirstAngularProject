@@ -5,7 +5,7 @@
     </nav>
 
     <div id="displayBooks" > 
-        <div class="books" *ngFor="let book of books | fresh:useridd">
+        <div class="books" *ngFor="let book of books ">
             <h3>{{book.title}}</h3>
             <p>Author:{{book.author}}</p>
             <p>Pages:{{book.pages}}</p>
